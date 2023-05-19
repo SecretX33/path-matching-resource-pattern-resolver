@@ -3,7 +3,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.github.secretx33"
+group = "io.github.secretx33"
 version = "0.1"
 
 repositories {
