@@ -32,8 +32,6 @@ To use the `path-matching-resource-pattern-resolver` library in your Java projec
 
 ### 1. Import the library in your favorite build tool 
 
-**WARNING: I'm still in the process of publishing this library, thus it cannot be imported through Maven Central yet.**
-
 ### Maven
 
 Add the following dependency to your project's `pom.xml` file.

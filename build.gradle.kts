@@ -1,6 +1,7 @@
 plugins {
-    id("java-library")
-    id("maven-publish")
+    `java-library`
+    `maven-publish`
+    signing
 }
 
 group = "io.github.secretx33"
@@ -36,15 +37,64 @@ tasks.withType<JavaCompile> {
 publishing {
     publications {
         create<MavenPublication>("maven") {
+            artifactId = rootProject.name
             from(components["java"])
+            versionMapping {
+                usage("java-api") {
+                    fromResolutionOf("runtimeClasspath")
+                }
+                usage("java-runtime") {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name.set(rootProject.name)
+                description.set("Flexible resource pattern resolution library for Java applications. ")
+                url.set("https://github.com/SecretX33/path-matching-resource-pattern-resolver")
+
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("secretx33")
+                        name.set("SecretX")
+                        email.set("notyetmidnight@gmail.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com:SecretX33/path-matching-resource-pattern-resolver.git")
+                    developerConnection.set("scm:git:ssh://github.com:SecretX33/path-matching-resource-pattern-resolver.git")
+                    url.set("https://github.com/SecretX33/path-matching-resource-pattern-resolver")
+                }
+            }
         }
     }
-}
 
-tasks.javadoc {
-    val options = options as StandardJavadocDocletOptions
-    if (JavaVersion.current().isJava9Compatible) {
-        options.addBooleanOption("html5", true)
+    signing {
+        useGpgCmd()
+        sign(publishing.publications["maven"])
     }
-    options.addStringOption("Xdoclint:none", "-quiet")
+
+    repositories {
+        maven {
+            credentials {
+                username = System.getenv("SONATYPE_USER")
+                password = System.getenv("SONATYPE_PASSWORD")
+            }
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+        }
+    }
+
+    tasks.javadoc {
+        val options = options as StandardJavadocDocletOptions
+        if (JavaVersion.current().isJava9Compatible) {
+            options.addBooleanOption("html5", true)
+        }
+        options.addStringOption("Xdoclint:none", "-quiet")
+    }
 }
