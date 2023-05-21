@@ -38,7 +38,7 @@ Add the following dependency to your project's `pom.xml` file.
 
 ```xml
 <dependency>
-    <groupId>com.github.secretx33</groupId>
+    <groupId>io.github.secretx33</groupId>
     <artifactId>path-matching-resource-pattern-resolver</artifactId>
     <version>0.1</version>
 </dependency>
@@ -49,7 +49,7 @@ Add the following dependency to your project's `pom.xml` file.
 Add the following dependency to your project's `build.gradle` file.
 
 ```kts
-implementation 'com.github.secretx33:path-matching-resource-pattern-resolver:0.1'
+implementation 'io.github.secretx33:path-matching-resource-pattern-resolver:0.1'
 ```
 
 ### Gradle (KTS)
@@ -57,12 +57,12 @@ implementation 'com.github.secretx33:path-matching-resource-pattern-resolver:0.1
 Add the following dependency to your project's `build.gradle.kts` file.
 
 ```kts
-implementation("com.github.secretx33:path-matching-resource-pattern-resolver:0.1")
+implementation("io.github.secretx33:path-matching-resource-pattern-resolver:0.1")
 ```
 
-### In code
+### 2. In code
 
-To use the `PathMatchingResourcePatternResolver` in your Java project, follow the steps below.
+In in your Java code, follow the steps below.
 
 1. Instantiate the resource resolver:
 
