@@ -22,15 +22,23 @@ The main advantages of using `PathMatchingResourcePatternResolver` are:
 
 Consider using `PathMatchingResourcePatternResolver` when you need to dynamically locate and load resources in your Java project, especially if you require pattern-based matching or classpath scanning functionality. It provides a convenient and efficient way to handle resources, making it easier to manage and process them within your application.
 
-## Credits
-
-This library is made from classes extracted from the Spring Framework project, which can be found at [https://github.com/spring-projects/spring-framework](https://github.com/spring-projects/spring-framework). All credits for the original implementation go to the contributors and maintainers of the Spring Framework.
-
 ## Usage
 
 To use the `path-matching-resource-pattern-resolver` library in your Java project, you can include it as a dependency from your build tool. It is published in Maven Central.
 
 ### 1. Import the library in your favorite build tool 
+
+### Gradle
+
+Add the following dependency to your project's `build.gradle`/`build.gradle.kts` file.
+
+```kts
+// kts
+implementation("io.github.secretx33:path-matching-resource-pattern-resolver:0.1")
+
+// ant
+implementation 'io.github.secretx33:path-matching-resource-pattern-resolver:0.1'
+```
 
 ### Maven
 
@@ -42,22 +50,6 @@ Add the following dependency to your project's `pom.xml` file.
     <artifactId>path-matching-resource-pattern-resolver</artifactId>
     <version>0.1</version>
 </dependency>
-```
-
-### Gradle
-
-Add the following dependency to your project's `build.gradle` file.
-
-```kts
-implementation 'io.github.secretx33:path-matching-resource-pattern-resolver:0.1'
-```
-
-### Gradle (KTS)
-
-Add the following dependency to your project's `build.gradle.kts` file.
-
-```kts
-implementation("io.github.secretx33:path-matching-resource-pattern-resolver:0.1")
 ```
 
 ### 2. In code
@@ -139,7 +131,7 @@ This library is distributed under the Apache License 2.0, which is the same lice
 
 ## Acknowledgments
 
-We would like to express our gratitude to the Spring Framework community for their continuous support and contributions. Without their efforts, this library would not have been possible.
+This library is made from classes extracted from the Spring Framework project, which can be found at [https://github.com/spring-projects/spring-framework](https://github.com/spring-projects/spring-framework). All credits for the original implementation go to the contributors and maintainers of the Spring Framework.
 
 ## Disclaimer
 
